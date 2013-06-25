@@ -14,12 +14,24 @@ var pool = mysql.createPool({
 exports.getFoods = function(req, res){
     var foods = {};
     pool.getConnection(function(err, conn){
-        conn.query('select * from Food', function(error, rows, fields){
-            for(i=0;i<rows.length;i++){
+        if(err){
+
+        } else {
+            conn.query('select * from Food', function(error, rows, fields){
+                if(err){
+                  conn.destroy();
+                } else {
+                  for(i=0;i<rows.length;i++){
 
 
-            }
-            conn.end();
-        });
+                  }
+                  conn.end();
+                }
+
+
+            });
+
+        }
+
     });
 };
