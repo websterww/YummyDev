@@ -1,0 +1,73 @@
+{
+   "/yummy": {
+
+       "get": "login",
+
+       "post": "routes.validateLogin",
+
+       "/*": "routes.needLogin",
+
+       "/logout": {
+           "get": "logout",
+           "post": "routes.logout"
+       },
+
+       "/food": {
+           "get": "routes.food.list",
+           "post": "routes.food.add",
+           "/:id": {
+               "get": "routes.food.searchByVendorId",
+               "del": "routes.food.del",
+               "put": "routes.food.update"
+           }
+       },
+
+       "/vendor": {
+           "get": "routes.vendor.list",
+           "post": "routes.vendor.add",
+           "/:id": {
+               "del": "routes.vendor.del",
+               "put": "routes.vendor.update"
+           }
+       },
+
+       "/user": {
+           "get": "routes.user.list",
+           "post": "routes.user.add",
+           "/:id": {
+               "del": "routes.user.del",
+               "put": "routes.user.update"
+           }
+       },
+
+       "/menu": {
+           "get": "routes.menu.list",
+           "/:date": {
+               "get": "routes.menu.listByDate",
+               "post": "routes.menu.bulkAdd",
+               "del": "routes.menu.bulkDel",
+               "put": "routes.menu.bulkUpdate",
+               "/:id": {
+                   "put": "routes.menu.update",
+                   "del": "routes.menu.del"
+               }
+           }
+       },
+
+       "/order": {
+           "get": "routes.order.list",
+           "/:date": {
+               "get": "routes.order.listByDate",
+               "/:user": {
+                   "get": "routes.order.listByUserNDate"
+               }
+           },
+           "/user": {
+               "/:user": {
+                   "get": "routes.order.listByUser"
+               }
+           }
+       }
+
+    }
+}
