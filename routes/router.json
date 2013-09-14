@@ -47,6 +47,7 @@
                "post": "routes.menu.bulkAdd",
                "del": "routes.menu.bulkDel",
                "put": "routes.menu.bulkUpdate",
+               "/:toDate" : "",
                "/:id": {
                    "put": "routes.menu.update",
                    "del": "routes.menu.del"
